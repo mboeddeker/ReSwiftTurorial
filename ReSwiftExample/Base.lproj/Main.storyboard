@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +12,46 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ReSwiftExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lte-CL-ixc">
+                                <rect key="frame" x="166.5" y="120" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJS-Id-DCL">
+                                <rect key="frame" x="159" y="363" width="57" height="30"/>
+                                <state key="normal" title="Add 100"/>
+                                <connections>
+                                    <action selector="addHundred:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lOe-cO-kXo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFQ-WD-nO5">
+                                <rect key="frame" x="149" y="408" width="77" height="30"/>
+                                <state key="normal" title="Remove 20"/>
+                                <connections>
+                                    <action selector="removeTwenty:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6R2-3K-d5T"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fJS-Id-DCL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2u2-lM-gZE"/>
+                            <constraint firstItem="xFQ-WD-nO5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QrQ-4k-Zdf"/>
+                            <constraint firstItem="Lte-CL-ixc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aDv-Zm-Vic"/>
+                            <constraint firstItem="Lte-CL-ixc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="hg1-ri-Y1h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xFQ-WD-nO5" secondAttribute="bottom" constant="229" id="inw-VJ-vTu"/>
+                            <constraint firstItem="xFQ-WD-nO5" firstAttribute="top" secondItem="fJS-Id-DCL" secondAttribute="bottom" constant="15" id="r1t-Sf-CUm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="Lte-CL-ixc" id="p52-H7-y4Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

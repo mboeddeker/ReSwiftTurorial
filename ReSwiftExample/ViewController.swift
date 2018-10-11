@@ -7,14 +7,43 @@
 //
 
 import UIKit
+import ReSwift
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, StoreSubscriber {
+
+    @IBOutlet weak var label: UILabel!
+
+    var store: Store<AppState>?
+
+    @IBAction func addHundred(_ sender: Any) {
+        let action = IncreaseMoney(value: 100.0)
+        store?.dispatch(action)
+    }
+
+    @IBAction func removeTwenty(_ sender: Any) {
+        let action = DecreaseMoney(value: 20.0)
+        store?.dispatch(action)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.store = MainStore.shared.store
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
+        store?.subscribe(self)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        store?.unsubscribe(self)
+    }
+
+    func newState(state: AppState) {
+        label.text = "Money: \(state.money)"
+    }
 }
 
